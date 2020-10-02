@@ -1,0 +1,189 @@
+body            { background-attachment: fixed; background-image: url("Images/fon.gif"); padding: 0pt 10pt; margin-top: 0; margin-bottom: 0 }
+
+body#main_body  { background-image: linear-gradient(rgba(204, 204, 204, 0.7), rgba(204, 204, 204, 0) 10%, rgba(204, 204, 204, 0) 90%, rgba(204, 204, 204, 0.7)), url("Images/fon.gif") }
+
+div.description { position: sticky; top:    0; background-image: url('Images/fon.gif') }
+
+div.lezioni     { display: none }
+
+nav             { border: 1pt solid #aaaaaa; border-radius: 12pt; box-shadow: 7pt 7pt 2pt #cccccc; padding: 20pt;
+                  margin: 0 40pt 50pt 15pt; width: 170pt; float: left }
+nav             { background-color: rgba(204, 204, 204, 0.2) }
+
+header          { font: bold 24pt Verdana, Arial, sans-serif; text-align: center; padding: 12pt 0pt 6pt 0pt;
+                  text-shadow: 2pt 2pt 1pt #aaaaaa }
+
+hr              { border: 2pt inset #aaaaaa; border-top: 2pt inset #0a0ea3 }
+
+footer#main>hr  { margin-bottom: 12pt }
+
+header:hover    { color: #aaaaaa; text-shadow: 2pt 2pt 0 #444444 }
+
+h1              { font: bold 17pt Verdana, Arial, sans-serif; padding: 18pt 0pt 6pt 0pt }
+
+h2              { font: bold 15pt Verdana, Arial, sans-serif; padding: 12pt 0pt 6pt 0pt }
+
+h3              { font: bold 13pt Verdana, Arial, sans-serif; padding: 8pt 0pt 4pt 0pt }
+
+h4              { font: bold 12pt Verdana, Arial, sans-serif; padding: 6pt 0pt 3pt 0pt }
+
+p               { font: 14pt Cambria, "Times New Roman", serif; text-align: justify; text-indent: 5%; padding: 1pt 0pt; margin: 10pt 0pt 10pt 0pt }
+
+div.pre>p       { font: 11pt Cambria, "Times New Roman", serif; text-align: right; text-indent: 0; padding: 1pt 0pt; margin: 5pt 0pt }
+
+header>p        { font: bolder 32pt Verdana, Arial, sans-serif; text-align: center; text-indent: 0; text-shadow: 2pt 2pt 0pt #888888;
+                  padding: 1pt 0pt; margin: 15pt 0pt; color: #0a0ea3 }
+
+footer:not(#main)
+                { padding: 6pt 0pt; margin: 6pt 0pt 0pt 0pt  }
+
+footer:not(#main):not(#note)
+                { position: sticky; bottom: 0; background-image: url('Images/fon.gif')  }
+
+footer#main     { clear: both }
+
+footer p        { font: 13pt Cambria, "Times New Roman", serif; text-indent: 0; padding: 0; margin: 5pt 0pt }
+
+nav p           { font: bold 12pt Verdana, Arial, sans-serif; color: #000000; text-align: left; text-indent: 0; padding: 0; margin: 7pt 0pt }
+
+p.lezioni       { font: 13pt Cambria, "Times New Roman", serif; white-space: pre; text-indent: 0; padding: 0; margin: 2pt 0pt }
+
+p.nota          { font-size: 12pt; text-indent: 3% }
+
+p.code          { text-indent: 0 }
+
+p.img           { text-align: center; text-indent: 0 }
+
+p#in_esempi     { font-size: 10pt }
+
+var             { font-weight: bold }
+
+ul, ol          { margin-top: 0pt; margin-bottom: 0pt; padding-top: 0pt; padding-bottom: 0pt }
+
+li              { font: 14pt Cambria, "Times New Roman", serif; text-align: justify; padding: 2pt 0pt }
+
+ol#tasks        { margin-left: 250pt }
+
+ol#tasks li     { font: 11pt Verdana, Arial, sans-serif; padding: 3pt 0 }
+
+a               { font: italic 12pt Verdana, Arial, sans-serif; color: #000000; text-decoration: none }
+a:visited       { font: italic 12pt Verdana, Arial, sans-serif; color: #0a0ea3; text-decoration: none }
+
+a.in            { font-size: 10pt }
+
+a.lezioni       { font-size: 11pt; margin: 0; padding: 0; line-height: 1.7 }
+
+a.commenti:visited,
+a.commenti      { font: italic 13pt Consolas, "Courier New", monospace; color: #008000; text-decoration: underline }
+
+a:hover/*,
+a.commenti:hover,
+a.in:hover*/    { text-decoration: underline }
+
+span.sint       { font: 14pt Consolas, "Courier New", monospace; white-space: pre-wrap /*line-height: 18pt*/ }
+span.type       { font-style: italic }
+span.fun        { font-style: italic; font-weight: bold }
+span.chiavi     { color: #0000f0 }
+span.keys       { font-weight: bold }
+span.mnemo      { font-style: italic }
+span.commenti   { color: #008000 }
+
+var             { font-weight: bold; font-style: italic }
+
+mark            { background-color: transparent;  font-style: italic }
+
+code            { white-space: pre-wrap; font: 13pt Consolas, "Courier New", monospace }
+
+table           { width: 100%; border-spacing: 1pt; empty-cells: show }
+
+/*table.domanda   { width: 600pt; margin: 50pt auto }*/
+
+th              { border: 2pt groove #777777; border-radius: 4pt; padding: 5pt 5pt; font: 12pt Cambria, "Times New Roman", serif; 
+                  color: #ffffff; background-color: #555555 }
+
+td              { border: 2pt groove #777777; border-radius: 4pt; padding: 3pt 5pt; font: 12pt Cambria, "Times New Roman", serif }
+td.bnone        { border: 0 }
+td.esempi       { border: 0; padding: 0pt 0pt; white-space: pre; font: 13pt Consolas, "Courier New", monospace; line-height: 16pt; 
+                  vertical-align: top }
+td.commenti     { border: 0; padding: 0pt 0pt; white-space: pre; font: 13pt Consolas, "Courier New", monospace; line-height: 16pt; 
+                  vertical-align: top; color: #008000 }
+
+/*td.domanda      { font: italic 12pt Verdana, Arial, sans-serif; text-align: center; border: 0 }*/
+
+p.risposta     { font: 14pt Cambria, "Times New Roman", serif; text-align: center; text-indent: 0; text-decoration: overline; }
+
+p.domanda       { font: 18pt Cambria, "Times New Roman", serif; text-indent: 0 }
+
+input[type=checkbox] { width: 15pt; height: 15pt }
+input[type=radio]    { width: 12pt; height: 12pt }
+
+/*span.domanda    { font: 16pt Cambria, "Times New Roman", serif }*/
+
+img#css         { border: 0; width: 7%; position: relative; left: 85%; top: 12pt }
+
+:target         { animation: highlight 1.5s ease-out }
+
+
+@keyframes highlight 
+{
+  0%   { background-color: rgb(232, 196, 54) }
+  100% { background-color: inherit }
+}
+
+
+@media print
+{ body          { background-image: none; padding: 0; orphans: 2; widows: 2 }
+
+  footer:not(#main):not(#note)
+                { display: none }
+
+  h1, h2, h3, h4
+                { page-break-inside: avoid; page-break-after: avoid }
+
+  a:after       { content:  attr(lezione); font-size: 70% }
+
+  a:visited     { color: black }
+}
+
+@media only screen and (max-device-width: 1000px)
+{ body            { margin: 30px }
+  
+  nav             { float: none; width: auto; margin-left: 0 }
+
+  nav p, nav p a  { font-size: 9pt }
+  
+  div.pre>p       { font-size: 7pt }
+  
+  footer:not(#main):not(#note),
+  div.description  { position: static }
+  
+  p               { font-size: 90% }
+  
+  code, var, span.sint, span.type, span.fun,
+  span.chiavi, span.keys, span.mnemo, span.commenti
+                  { font-size: 11pt }
+  
+  p#in_esempi     { font-size: 12pt }
+  
+  a               { font-size: 11pt }
+  
+  a.lezioni       { font-size: 11pt; display: block }
+  
+  footer p        { font-size: 10pt }
+  
+  footer#main table tr td p { font-size: 16pt }
+  
+  ol              { padding-left: 60px }
+  
+  ol#tasks        { margin-left: 20pt }
+  
+  div.description p,
+  li              { font-size: 11pt }
+  
+  img.asm         { width: 100% }
+  
+ /* p.domanda       { font: 18pt Cambria, "Times New Roman", serif; text-indent: 0 } */
+
+  input[type=checkbox] { width: 25pt; height: 25pt }
+  input[type=radio]    { width: 20pt; height: 20pt }
+}
