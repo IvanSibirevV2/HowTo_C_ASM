@@ -57,10 +57,26 @@ void Test_3()
     }
     std::cout << "<x,y>=" << "<" << x << "," << y << ">" << std::endl;
 }
+/// <summary>Короткий обмен значениями без приблуд...</summary>
+void Test_4()
+{
+    std::cout << "Test_3();" << std::endl;
+    int x = 10;
+    int y = 11;
+    std::cout << "<x,y>=" << "<" << x << "," << y << ">" << std::endl;
+    __asm
+    {
+        xor ebx, ebx
+        mov ebx, x
+        XCHG ebx, y
+        mov x, ebx
+    }
+    std::cout << "<x,y>=" << "<" << x << "," << y << ">" << std::endl;
+}
 
 int main()
 {
-    Test_3();
+    Test_4();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
