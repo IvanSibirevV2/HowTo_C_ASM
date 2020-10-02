@@ -1,2 +1,6 @@
 ﻿  _02102020_1128_C_ASM.cpp
+C:\D\Git_Hub\HowTo_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM.cpp(6,1): warning C4005: __Set_Test: изменение макроопределения
+C:\D\Git_Hub\HowTo_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM.cpp(5): message : см. предыдущее определение "__Set_Test"
+C:\D\Git_Hub\HowTo_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM.cpp(102,1): warning C4005: __Set_Test: изменение макроопределения
+C:\D\Git_Hub\HowTo_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM\_02102020_1128_C_ASM.cpp(6): message : см. предыдущее определение "__Set_Test"
   _02102020_1128_C_ASM.vcxproj -> C:\D\Git_Hub\HowTo_C_ASM\_02102020_1128_C_ASM\Debug\_02102020_1128_C_ASM.exe
