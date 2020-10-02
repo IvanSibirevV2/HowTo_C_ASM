@@ -1,64 +1,105 @@
 ﻿// _02102020_1205_C_ASM.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+//Этот пример посвящен работе с указателями
 
 #include <iostream>
-
-void Test_1()
-{
-    int x = 10;
-    int y = 11;
-    //<[Адрес в памяти;значение в пямяти]>
-    std::cout << "<&x;x>=<"<< &x <<";"<< x <<">"<< std::endl;
-    std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
-    //Указатель, как он рабтает
-    int* yy = &y;//Этот код эквивалентен следующей ассемблерной вставке
-    __asm 
-    {//Получение адреса переменной y
-        //...=&y
-        lea eax, [y]
-        //int* yy = ...
-        mov dword ptr[yy], eax
-    }
-    std::cout << "<&yy;yy>=<" << &yy << ";" << yy << ">" << std::endl;
-    _asm
-    {
-        xor eax, eax
-        xor ebx, ebx
-        mov         eax, dword ptr[x]
-        mov         ecx, dword ptr[yy]
-        mov         ebx, dword ptr[ecx]
-        mov          dword ptr[x], ebx
-        mov          dword ptr[ecx], eax
-    }
-    std::cout << "<&x;x>=<" << &x << ";" << x << ">" << std::endl;
-    std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
-}
-void Test_2()
-{
-    int x = 10;
-    int y = 11;
-    std::cout << "<&x;x>=<" << &x << ";" << x << ">" << std::endl;
-    std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
-    _asm
-    {
-        //Человеческая очистка
-        xor eax, eax
-        xor ebx, ebx
-        //Получение значения x
-        mov eax, x
-        //Получение указателя
-        lea ebx, [y]
-        //Обмен значениями
-        XCHG eax, [ebx]
-        mov x, eax
-        //
-    }
-    std::cout << "<&x;x>=<" << &x << ";" << x << ">" << std::endl;
-    std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
-}
+////////////////////////////////////////////////////////////////////////////////////
+#include<windows.h>
+#define __Set_TimeTestX 100000000
+#define __Set_TestTimeStart double TickStart = GetTickCount(); for(int i=0;i<__Set_TimeTestX;i++)
+#define __Set_TestTimeStop double TickFinish = GetTickCount();std::cout << "_TimeTest=" << TickFinish-TickStart << std::endl;
+////////////////////////////////////////////////////////////////////////////////////
 int main()
 {
-    Test_2();
+    /*Тест1*/if (false)
+    {//Быстрый пример обмена значениями с использованием указателя...
+        int x = 10;int y = 11;
+        //<[Адрес в памяти;значение в пямяти]>
+        std::cout << "<&x;x>=<" << &x << ";" << x << ">" << std::endl;
+        std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
+        //Указатель, как он рабтает
+        int* yy = &y;//Этот код эквивалентен следующей ассемблерной вставке
+        __asm
+        {//Получение адреса переменной y
+            lea eax, [y]//...=&y
+            mov dword ptr[yy], eax//int* yy = ...
+        }
+        std::cout << "<&yy;yy>=<" << &yy << ";" << yy << ">" << std::endl;
+        _asm
+        {
+            xor eax, eax
+            xor ebx, ebx
+            mov         eax, dword ptr[x]
+            mov         ecx, dword ptr[yy]
+            mov         ebx, dword ptr[ecx]
+            mov          dword ptr[x], ebx
+            mov          dword ptr[ecx], eax
+        }
+        std::cout << "<&x;x>=<" << &x << ";" << x << ">" << std::endl;
+        std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
+    }
+    /*Test2*/else if (!false)
+    {// Чуть более оптимальный вариант
+        int x = 10;int y = 11;
+        std::cout << "<&x;x>=<" << &x << ";" << x << ">" << std::endl;
+        std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
+        _asm
+        {
+            //Человеческая очистка
+            xor eax, eax
+            xor ebx, ebx
+            //Получение значения x
+            mov eax, [x]
+            //Получение указателя
+            lea ebx, [y]
+            //Обмен значениями
+            XCHG eax, [ebx]
+            mov x, eax
+        }
+        std::cout << "<&x;x>=<" << &x << ";" << x << ">" << std::endl;
+        std::cout << "<&y;y>=<" << &y << ";" << y << ">" << std::endl;
+    }
+    else if (false){}
+    //////////////////////////////////////////////////////////////////////////////////////////
+    //Теперь тесты производительности
+    //////////////////////////////////////////////////////////////////////////////////////////
+    //Забегая в перед, скажем, что МакросоФаговский <<mov eax, dword ptr[x]>>
+    //Работает быстрее, чем все что может быть написано на  классических командах mov
+    //По этому каждый чих оптимизируйте до дондышка...
+    //////////////////////////////////////////////////////////////////////////////////////////
+    /*Тест1*/
+    {
+        int x = 10;int y = 11;int* yy = &y;
+        __Set_TestTimeStart
+        _asm
+        {
+            xor eax, eax
+            xor ebx, ebx
+            mov eax, dword ptr[x]
+            mov         ecx, dword ptr[yy]
+            mov         ebx, dword ptr[ecx]
+            mov          dword ptr[x], ebx
+            mov          dword ptr[ecx], eax
+        }
+        __Set_TestTimeStop
+    }
+    /*Test2*/
+    {
+        //Даже если попытаетесь упростить, лучше чем индекс 1000 не получите...//Это косяк
+        int x = 10;int y = 11;
+        __Set_TestTimeStart
+        _asm
+        {
+            xor eax, eax
+            xor ebx, ebx
+            mov eax, dword ptr[x]
+            
+            lea ebx, [y]
+            
+            XCHG eax, dword ptr[ebx]
+            mov x, eax
+        }
+        __Set_TestTimeStop
+    }
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
